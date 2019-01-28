@@ -6,9 +6,9 @@ const app = express()
 
 app.use(express.static('public'));
 app.get('/updateState', function(req, res){
-  res.status = 200;
-  res.responseText = 'Completed';
-  res.send();
+  console.log('request recieved');
+  res.send('Hello');
+  console.log('request complete');
 })
 
 
