@@ -1,11 +1,10 @@
 'use strict'
 let express = require('express')
-let app = express()
+const app = express()
 
 // ... profit
 
-
-
+app.use(express.static('public'));
 
 
 
