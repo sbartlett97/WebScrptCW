@@ -2,14 +2,8 @@
 
 async function requestUpdateStatus(){
   let request = new XMLHttpRequest();
-  request.onreadystatechanged = function(){
-    console.log(request.readyState);
-    console.log(request.status);
-    if (request.readyState == 4 && request.status == 200){
-      console.log(request.responseText);
-    }
-  }
-  request.open('GET', 'http://localhost:8080/updateState', true)
+  request.responseType = 'text';
+  request.open('GET', 'http://192.168.0.84:8080/updateState', true)
   request.send();
 }
 
@@ -17,4 +11,4 @@ function updatePage(){
   location.reload(true);
 }
 
-setInterval(requestUpdateStatus, 5000);
+setInterval(requestUpdateStatus, 60000);
