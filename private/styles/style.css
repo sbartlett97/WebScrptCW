@@ -1,0 +1,16 @@
+html{
+  width: calc(100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #b8bbc1;
+  color: #000000;
+  font-family: sans-serif;
+}
+
+body{
+  font-size: 1em;
+  margin: 0;
+  text-align: center;
+  height:auto;
+}
