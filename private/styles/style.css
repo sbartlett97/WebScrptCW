@@ -7,10 +7,16 @@ html{
   color: #000000;
   font-family: sans-serif;
 }
-
+h1{
+  text-decoration: underline;
+}
 body{
   font-size: 1em;
   margin: 0;
   text-align: center;
   height:auto;
+}
+
+.radioBtn p{
+  display: inline;
 }
