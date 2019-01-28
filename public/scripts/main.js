@@ -6,7 +6,7 @@ async function requestUpdateStatus(){
     console.log(request.readyState);
     console.log(request.status);
     if (request.readyState == 4 && request.status == 200){
-      updatePage();
+      console.log(request.responseText);
     }
   }
   request.open('GET', 'http://localhost:8080/updateState', true)
@@ -14,9 +14,7 @@ async function requestUpdateStatus(){
 }
 
 function updatePage(){
-  let request = new XMLHttpRequest();
-  request.open('GET', 'localhost:8080', true)
-  request.send();
+  location.reload(true);
 }
 
 setInterval(requestUpdateStatus, 5000);
