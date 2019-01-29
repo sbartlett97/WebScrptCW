@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles/style.css" type="text/css">
-    
     <title>Dashboard Config</title>
   </head>
   <body>
@@ -13,17 +12,24 @@
         <h2>Background</h2>
         <h3>Please select an option for tha background </h3>
         <form class="radioBtn" action="index.html">
-          <p><input type="radio" name="bg" value="Colour">Block Colour</p>
-          <p><input type="radio" name="bg" value="Gradient">Gradient Colour</p>
-          <p><input type="radio" name="bg" value="Picture">Picture</p>
+          <p><input id="col" type="radio" name="bg" value="Colour">Block Colour</p>
+          <p><input id="grad" type="radio" name="bg" value="Gradient">Gradient Colour</p>
+          <p><input id="img" type="radio" name="bg" value="Picture">Picture</p>
         </form>
       </section>
       <section>
         <h2>Text</h2>
         <h3>Enter any you would like text</h3>
-        <input type="text" name="txt" value="">
+        <input type="text" id="txt" value="">
+      </section>
+      <section>
+        <h2>Other?</h2>
+      </section>
+      <section>
+        <h1>Send to Dashboard</h1>
+        <input type="button" id="submit" value="Submit">
       </section>
     </article>
-
+    <script type="text/javascript" src="scripts/updateDashboard.js"></script>
   </body>
 </html>

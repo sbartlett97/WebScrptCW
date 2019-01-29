@@ -3,14 +3,19 @@ let ip = '';
 
 async function requestUpdateStatus(){
   let request = new XMLHttpRequest();
-  request.responseType = 'text';
+  request.onreadystatechange = function(){
+    if(request.status == 200 && request.readyState == 4){
+       if (request.responseText === 'true'){
+         document.location.reload(true);
+       }else{
+         console.log('no update');
+       }
+    }
+  };
   request.open('GET', 'http://'+ ip +':8080/updateState', true)
   request.send();
 }
 
-function updatePage(){
-  location.reload(true);
-}
 async function loadIP(){
   let request = new XMLHttpRequest();
   request.onreadystatechange = function(){
