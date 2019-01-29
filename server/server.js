@@ -1,7 +1,6 @@
 'use strict'
 const express = require('express');
 const app = express();
-const path = require('path');
 let updateState = 'false';
 // ... profit?
 
@@ -21,5 +20,5 @@ app.get('/update', function(req, res){
   console.log(updateState);
 });
 
-app.use('/config', express.static(path.join(__dirname, '..', 'private')))
+app.use('/config', express.static('private/'));
 app.listen(8080);
