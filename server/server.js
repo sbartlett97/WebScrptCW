@@ -5,6 +5,7 @@ let updateState = 'false';
 // ... profit?
 
 app.use('/', express.static('public/'));
+app.use('/config', express.static('private/'));
 
 app.get('/updateState', function(req, res){
   res.responseType = 'text';
@@ -20,5 +21,4 @@ app.get('/update', function(req, res){
   console.log(updateState);
 });
 
-app.use('/config', express.static('private/'));
 app.listen(8080);
