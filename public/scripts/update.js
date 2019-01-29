@@ -22,16 +22,23 @@ function goFullScreen() {
     let fsResult = document.documentElement.requestFullscreen();
   }
 }
-let keyPress = new KeyboardEvent('keypress', {
-  key: 'Enter',
-  code: 'Enter',
-  location: 2,
-  ctrlKey: false,
-  shiftKey: false,
-  altKey: false,
-  metaKey: false,
-  repeat: false,
-  isComposing: false,
-  keyCode: 13
-})
-document.dispatchEvent(keyPress);
+
+/*
+  Not working but usefull to know - could be used to
+  simulate text typing on the screen.
+*/
+function simulateKeypress(){
+  let keyPress = new KeyboardEvent('keypress', {
+    key: 'Enter',
+    code: 'Enter',
+    location: 2,
+    ctrlKey: false,
+    shiftKey: false,
+    altKey: false,
+    metaKey: false,
+    repeat: false,
+    isComposing: false,
+    keyCode: 13
+  })
+  document.dispatchEvent(keyPress);
+}
