@@ -1,11 +1,6 @@
 'use strict'
-let ip = '';
-function sendToServer(){
-  let target = '/update';
-  let request = new XMLHttpRequest();
-  console.log(target);
-  request.open('POST', target, true);
-  request.send();
+async function sendToServer(){
+  const response = await fetch('/update');
 }
 
 document.getElementById('submit').addEventListener('click', sendToServer, false);
