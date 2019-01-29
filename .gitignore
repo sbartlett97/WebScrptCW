@@ -1,3 +1,4 @@
 node_modules
 package-lock.json
-ip.text
+public/ip.text
+private/ip.text
