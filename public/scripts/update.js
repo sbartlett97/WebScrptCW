@@ -12,20 +12,8 @@ async function requestUpdateStatus(){
        }
     }
   };
-  request.open('GET', 'http://'+ ip +':8080/updateState', true)
+  request.open('GET', '/updateState', true)
   request.send();
 }
-
-async function loadIP(){
-  let request = new XMLHttpRequest();
-  request.onreadystatechange = function(){
-    if (request.status == 200 && request.readyState == 4){
-      ip = request.responseText;
-    }
-  };
-  request.responseType = 'text';
-  request.open('GET', 'ip.text', true);
-  request.send();
-}
-loadIP();
+requestUpdateStatus();
 setInterval(requestUpdateStatus, 10000);

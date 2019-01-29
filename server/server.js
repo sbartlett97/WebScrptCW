@@ -2,8 +2,6 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const saveip = require('./saveIP');
-const fs = require('fs');
 let updateState = 'false';
 // ... profit?
 
@@ -21,9 +19,9 @@ app.post('/update', function(req, res){
   updateState = 'true';
   res.send();
 });
+
 app.use('/config', express.static(path.join(__dirname, '..', 'private')))
 
 
 
-saveip.saveIP();
 app.listen(8080);
