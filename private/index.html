@@ -7,45 +7,31 @@
   </head>
   <body>
     <h1>Dashboard Config</h1>
-    <article class="main">
-        <section class="iframeContainer">
-          <iframe src="examples/brb/brb.html"></iframe>
-          <h2>BRB</h2>
-        </section>
-        <section class="iframeContainer">
-          <iframe src="examples/comeIn/comeIn.html"></iframe>
-          <h2>Come In</h2>
-        </section>
-        <section class="iframeContainer">
-          <iframe src="examples/noDisturb/noDisturb.html"></iframe>
-          <h2>Do not disturb</h2>
-        </section>
-        <section class="iframeContainer">
-          <iframe src="examples/sw/index.html"></iframe>
-          <h2>Star Wars IV Crawl</h2>
-        </section>
-        <section>
-          <div>
-            <h1>test</h1>
-          </div>
-        </section>
-        <section>
-          <div>
-            <h1>test</h1>
-          </div>
-        </section>
-        <section>
-          <div>
-            <h1>test</h1>
-          </div>
-        </section>
-        <section>
-          <div>
-            <h1>test</h1>
-          </div>
-        </section>
-    </article>
-
+    <form onsubmit="return sendToServer()">
+      <input type="submit" name="send" value="Send">
+      <article class="main">
+          <section class="iframeContainer">
+            <iframe src="examples/brb/brb.html"></iframe>
+            <h2>BRB</h2>
+            <input id="brb" type="radio" name="template" class="radio">
+          </section>
+          <section class="iframeContainer">
+            <iframe src="examples/comeIn/comeIn.html"></iframe>
+            <h2>Come In</h2>
+            <input id="comeIn" type="radio" name="template" class="radio">
+          </section>
+          <section class="iframeContainer">
+            <iframe src="examples/noDisturb/noDisturb.html"></iframe>
+            <h2>Do not disturb</h2>
+            <input id="noDisturb" type="radio" name="template" class="radio">
+          </section>
+          <section class="iframeContainer">
+            <iframe src="examples/sw/index.html"></iframe>
+            <h2>Star Wars IV Crawl</h2>
+            <input id="sw" type="radio" name="template" class="radio">
+          </section>
+      </article>
+    </form>
     <script type="text/javascript" src="scripts/updateDashboard.js"></script>
     <script type="text/javascript" src="scripts/onLoad.js"></script>
   </body>

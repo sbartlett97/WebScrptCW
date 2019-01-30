@@ -31,7 +31,7 @@ article.main > section{
 iframe{
   margin: 0;
   width: 100%;
-  height: auto;
+  height: auto%;
   border: none;
   overflow: hidden;
 }

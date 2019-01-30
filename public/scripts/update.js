@@ -5,11 +5,11 @@ async function requestUpdateStatus(){
   const updateText = await response.text();
   console.log(updateText);
   if(updateText == 'true'){
-    const respone = await fetch('/');
+    location.reload();
   }
 }
 
-setInterval(requestUpdateStatus, 60000);
+setInterval(requestUpdateStatus, 5000);
 
 document.addEventListener('keypress', function(e){
   if (e.keyCode === 13) {
