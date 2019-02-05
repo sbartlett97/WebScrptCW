@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const app = express();
 const apiV1 = require('./apiV1');
-let updateState = 'false';
 // ... profit?
 
 app.use('/', express.static('public/'));
