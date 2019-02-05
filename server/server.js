@@ -25,8 +25,8 @@ app.post('/update', function(req, res){
   let srcHTMLPath = path.join(__dirname, '..', 'private', 'examples', src, src + '.html');
   let destHTMLPath = path.join(__dirname, '..', 'public', 'index.html');
   console.log('Set html paths');
-  let srcCSSPath = path.join(__dirname, '..', 'private', 'examples', src, src + '.css');
-  let destCSSPath = path.join(__dirname, '..', 'public', src + '.css');
+  let srcCSSPath = path.join(__dirname, '..', 'private', 'examples', src, 'style.css');
+  let destCSSPath = path.join(__dirname, '..', 'public', 'style.css');
   console.log('set css paths');
   fs.copyFile(srcHTMLPath, destHTMLPath, (err) => {
     if(err) throw err;
