@@ -17,7 +17,7 @@ router.post('/update', updateDashboard);
 
 function updateDashboard(req, res){
   let src = req.body.target;
-  let srcHTMLPath = path.join(__dirname, '..', 'webpages', 'private', 'examples', src, src + '.html');
+  let srcHTMLPath = path.join(__dirname, '..', 'webpages', 'private', 'examples', src, 'index.html');
   let destHTMLPath = path.join(__dirname, '..', 'webpages', 'public', 'index.html');
   let srcCSSPath = path.join(__dirname, '..', 'webpages', 'private', 'examples', src, 'style.css');
   let destCSSPath = path.join(__dirname, '..', 'webpages', 'public', 'style.css');
