@@ -17,19 +17,20 @@ router.post('/update', updateDashboard);
 
 function updateDashboard(req, res){
   let src = req.body.target;
-  let srcHTMLPath = path.join(__dirname, '..', 'webpages', 'private', 'examples', src, 'index.html');
-  let destHTMLPath = path.join(__dirname, '..', 'webpages', 'public', 'index.html');
-  let srcCSSPath = path.join(__dirname, '..', 'webpages', 'private', 'examples', src, 'style.css');
-  let destCSSPath = path.join(__dirname, '..', 'webpages', 'public', 'style.css');
-  fs.copyFile(srcHTMLPath, destHTMLPath, (err) => {
-    if(err) throw err;
-  });
-  fs.copyFile(srcCSSPath, destCSSPath, (err) => {
-    if(err) throw err;
-  });
+  copyFile(src, 'html');
+  copyFile(src, 'css');
   updateState = 'true';
   res.send('state updated');
   console.log('Dashboard has been updated, waiting for refresh');
 }
 
+function copyFile(src, ext){
+  let file = ext == 'html' ? 'index' : 'style';
+  let source = path.join(__dirname, '..', '..', 'webpages', 'private', 'examples', src, `${file}.${ext}`);
+  let destination = path.join(__dirname, '..', '..', 'webpages', 'public', `${file}.${ext}`);
+  fs.copyFile(source, destination, (err) => {
+    if(err) throw err;
+    console.log(`${ext} File Copied`);
+  });
+}
 module.exports = router;
