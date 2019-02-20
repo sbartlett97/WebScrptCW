@@ -1,6 +1,6 @@
 {
   "name": "webscrpcw",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A Configurable Dashboard fot unatended displays",
   "main": "server/server.js",
   "author": "Samuel Bartlett",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "body-parser": "^1.18.2",
+    "ejs": "^2.6.1",
     "express": "^4.16.2",
     "fs": "0.0.1-security",
     "ip": "^1.1.5"

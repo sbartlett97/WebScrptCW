@@ -1,6 +1,6 @@
 body {
   background: black;
-  background: url(images/stars.png);
+  background: url(../images/stars.png);
   background-size: 100vw;
   color: #ffd23e;
   font-family: arial;
