@@ -1,4 +1,5 @@
 'use strict'
+
 const express = require('express');
 const router = express.Router();
 const dashboard = express.Router();
@@ -8,7 +9,10 @@ const defaultPage = 'comeIn';
 let destPage;
 
 
-function updateDashboard(req, res){
+dashboard.get('/:dest/:source?', renderFragment);
+dashboard.get('/', handleDefault);
+
+async function updateDashboard(req, res){
   console.log('update recieved');
   destPage = req.body.target;
   console.log(destPage);
@@ -18,9 +22,6 @@ async function checkUpdate(req, res){
     res.send(destPage);
 }
 
-dashboard.get('/:dest/:source?', renderFragment);
-dashboard.get('/', handleDefault);
-
 async function handleDefault(req, res){
   res.redirect(`${defaultPage}/`);
 }
@@ -28,12 +29,12 @@ async function handleDefault(req, res){
 async function renderFragment(req, res){
   const source = req.params['source'];
   const nextPage = req.params['dest'];
-  if (!nextPage){
-    res.render(`pages/${defaultPage}/index`, {
+  if (nextPage){
+    res.render(`pages/${nextPage}`, {
       source: source
     });
   }else{
-    res.render(`pages/${nextPage}/index`, {
+    res.render(`pages/${defaultPage}`, {
       source: source
     });
   }
