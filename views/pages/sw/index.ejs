@@ -1,7 +1,7 @@
 <!doctype html>
 <meta charset=utf-8>
-<title>Star Wars</title>
-<link rel="stylesheet" href="public/styles/sw.css" type="text/css">
+<title>sw</title>
+<link rel="stylesheet" href="/public/styles/sw.css" type="text/css">
 <script type="text/javascript">
 window.addEventListener("load", () => {
 
@@ -13,7 +13,10 @@ window.addEventListener("load", () => {
 
 });
 </script>
-<img id="logo" src="public/images/logo.svg">
+<% if (!source) { %>
+  <%- include('../../partials/updateScript'); %>
+<% } %>
+<img id="logo" src="/public/images/logo.svg">
 
 <aside id="long">A long time ago, in a galaxy far, far away....</aside>
 
