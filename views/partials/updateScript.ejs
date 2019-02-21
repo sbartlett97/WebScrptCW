@@ -1,0 +1,13 @@
+<script>
+  async function checkUpdate(){
+    console.log('checking for new page');
+    const data = {current: currentPage}
+    let response = await fetch('/checkUpdate');
+    let checkPage = await response.text();
+    if (checkPage != currentPage){
+      window.location = `/${checkPage}`;
+    }
+  }
+  const currentPage = document.querySelector('title').innerHTML;
+  setInterval(checkUpdate, 30000);
+</script>

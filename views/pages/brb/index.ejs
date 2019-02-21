@@ -2,10 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="public/styles/brb.css" type="text/css">
-    <title>BRB</title>
+    <link rel="stylesheet" href="/public/styles/brb.css" type="text/css">
+    <title>brb</title>
   </head>
   <body>
     <h1>BRB</h1>
-  </body>
+    <% if (!source) { %>
+      <%- include('../../partials/updateScript'); %>
+    <% } %>  </body>
 </html>

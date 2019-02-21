@@ -2,10 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="public/styles/comeIn.css" type="text/css">
-    <title>Come In</title>
+    <link rel="stylesheet" href="/public/styles/comeIn.css" type="text/css">
+    <title>comeIn</title>
   </head>
   <body>
     <h1>PLEASE COME IN</h1>
-  </body>
+    <% if (!source) { %>
+      <%- include('../../partials/updateScript'); %>
+    <% } %>  </body>
 </html>

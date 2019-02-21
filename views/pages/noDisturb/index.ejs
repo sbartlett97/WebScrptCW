@@ -2,10 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="public/styles/noDisturb.css" type="text/css">
-    <title>Do not disturb </title>
+    <link rel="stylesheet" href="/public/styles/noDisturb.css" type="text/css">
+    <title>noDisturb</title>
   </head>
   <body>
     <h1>DO NOT DISTURB</h1>
-  </body>
+    <% if (!source) { %>
+      <%- include('../../partials/updateScript'); %>
+    <% } %>  </body>
 </html>

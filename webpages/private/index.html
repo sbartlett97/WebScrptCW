@@ -7,31 +7,28 @@
   </head>
   <body>
     <h1>Dashboard Config</h1>
-    <form onsubmit="return sendToServer()">
-      <input type="submit" name="send" value="Send">
       <article class="main">
           <section class="iframeContainer">
-            <iframe src="../public/brb/index.html"></iframe>
+            <iframe src="/brb/config"></iframe>
             <h2>BRB</h2>
             <input id="brb" type="radio" name="template" class="radio">
           </section>
           <section class="iframeContainer">
-            <iframe src="../public/comeIn/index.html"></iframe>
+            <iframe src="/comeIn/config"></iframe>
             <h2>Come In</h2>
             <input id="comeIn" type="radio" name="template" class="radio">
           </section>
           <section class="iframeContainer">
-            <iframe src="../public/noDisturb/index.html"></iframe>
+            <iframe src="/noDisturb/config"></iframe>
             <h2>Do not disturb</h2>
             <input id="noDisturb" type="radio" name="template" class="radio">
           </section>
           <section class="iframeContainer">
-            <iframe src="../public/sw/index.html"></iframe>
+            <iframe src="/sw/config"></iframe>
             <h2>Star Wars IV Crawl</h2>
             <input id="sw" type="radio" name="template" class="radio">
           </section>
       </article>
-    </form>
     <script type="text/javascript" src="scripts/updateDashboard.js"></script>
     <script type="text/javascript" src="scripts/onLoad.js"></script>
   </body>

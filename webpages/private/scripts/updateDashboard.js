@@ -1,14 +1,8 @@
 'use strict'
-async function sendToServer(){
-  let rads = document.querySelectorAll('input.radio');
-  let targetPage;
-  rads.forEach(function(item){
-    if(item.checked){
-      targetPage = item.id;
-    }
-  });
+async function sendToServer(event){
+  const targetPage = event.target.id;
   console.log(targetPage);
-  let data = {target: targetPage};
+  const data = {target: targetPage};
   const response = await fetch('/update', {
     method: "POST",
     mode: "cors",
@@ -20,3 +14,12 @@ async function sendToServer(){
   });
   return true;
 }
+
+function initialise(){
+  const rads = document.querySelectorAll('input.radio');
+  rads.forEach(function(item){
+    item.addEventListener('click', sendToServer);
+  })
+}
+
+document.addEventListener('DOMContentLoaded', initialise);
