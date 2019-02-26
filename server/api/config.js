@@ -7,15 +7,18 @@ const config = express.Router();
 
 config.get('/refreshTemplates', updateConfig);
 
-
 async function updateConfig(req, res){
   let fileNames = {};
   fs.readdir(pages, (err, files) => {
-    files.forEach(function(file, index){
-      let fileName = file.split('.', 1);
-      fileNames[Number(index)] = fileName.toString();
-    });
-    res.send(JSON.stringify(fileNames));
+    if(err){
+      console.log(err);
+    }else{
+      files.forEach(function(file, index){
+        let fileName = file.split('.', 1);
+        fileNames[Number(index)] = fileName.toString();
+      });
+      res.send(JSON.stringify(fileNames));
+    }
   });
 }
 

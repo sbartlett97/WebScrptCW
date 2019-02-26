@@ -13,7 +13,12 @@ article.main > h1{
   font-size: 2em;
   grid-area: header;
 }
-
+img{
+  width: 50%;
+}
+section > button{
+  background: none;
+}
 body{
   font-size: 1em;
   margin: 0;
@@ -23,7 +28,7 @@ body{
 article.main{
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  grid-auto-rows: auto;
+  grid-auto-rows: 1fr;
 }
 article.main > section{
   padding: 10px;

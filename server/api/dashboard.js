@@ -16,6 +16,7 @@ async function updateDashboard(req, res){
   console.log('update recieved');
   destPage = req.body.target;
   console.log(destPage);
+  res.send('update completed');
 }
 
 async function checkUpdate(req, res){
