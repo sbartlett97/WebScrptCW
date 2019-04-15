@@ -1,7 +1,5 @@
 'use strict'
-
-
-const headers = {
+const updateHeaders = {
   method: "POST",
   mode: "cors",
   cache: "no-cache",
@@ -11,18 +9,18 @@ const headers = {
   }
 
 
-async function sendToServer(event){
-  const targetPage = event.target.id;
-  const data = {target: targetPage};
-  headers.body = JSON.stringify(data);
-  const response = await fetch('/update', headers);
-  return true;
-}
-
-
 function initialise(){
   refreshTemplates();
   document.querySelector('button.refresh').addEventListener('click', refreshTemplates);
+}
+
+
+async function sendToServer(event){
+  const targetPage = event.target.id;
+  const data = {target: targetPage};
+  updateHeaders.body = JSON.stringify(data);
+  const response = await fetch('/update', updateHeaders);
+  return true;
 }
 
 
