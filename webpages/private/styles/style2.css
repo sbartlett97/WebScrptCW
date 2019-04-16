@@ -5,13 +5,13 @@ body{
   margin: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 25% 60% 15%;
+  grid-template-rows: 15% 75% 10%;
   height: 100vh;
 }
 header, footer{
   position: static;
   color: white;
-  background: black;
+  background: grey;
   text-align: center;
   margin: 0;
   padding: 0;
