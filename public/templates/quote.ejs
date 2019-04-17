@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8mb4">
+      <meta http-equiv="Cache-control" content="private">
+    <link rel="stylesheet" href="/public/styles/quote.css" type="text/css">
+    <title></title>
+    <% if (styling) { %>
+      <style>
+        <%= styling %>
+      </style>
+    <% } %>
+  </head>
+  <body>
+    <h1><%= text %></h1>
+    <h2><%= by %></h2>
+    <% if (!source) { %>
+      <%- include('../partials/updateScript'); %>
+    <% } %>
+  </body>
+</html>
