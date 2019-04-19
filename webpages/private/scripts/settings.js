@@ -84,8 +84,7 @@ function createRadio(value){
 }
 
 
-function createSection(){
-  const article = document.querySelector('article');
+function createSection(article){
   const section = document.createElement('section');
   section.classList.add('iframeContainer');
   article.appendChild(section);
