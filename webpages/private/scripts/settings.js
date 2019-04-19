@@ -37,9 +37,7 @@ async function refreshTemplates(){
 
   pages = JSON.parse(pages);
   const pagesList = pages.rows;
-  console.log(pagesList);
   pagesList.forEach(async function(item){
-    console.log(item);
     const section = createSection(article);
     const iframe = document.createElement('iframe');
     iframe.srcdoc = await renderIframe(item);

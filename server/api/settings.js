@@ -36,12 +36,10 @@ settings.get('/iframe/:type/:id', function(req, res){
           if (err)
             throw err
           let styleObjetcs = rows.slice(0, 2);
-          console.log(styleObjetcs);
           let styleString = "";
           styleObjetcs.forEach(function(item){
             styleString = styleString.concat(item.element,"{ ", item.property, ": ", item.value, ";}");
           })
-          console.log(styleString);
           ejs.renderFile(`${pages}/text.ejs`, {title: "",text: text, source: "server", styling: styleString}, function(err, str){
             if (err)
               throw err
@@ -59,17 +57,14 @@ settings.get('/iframe/:type/:id', function(req, res){
         let text = texts[0];
         let by = "";
         by = by.concat("- ", texts[1]);
-        console.log(by);
         con.query(`SELECT element, property, value FROM styles WHERE pageId = ${pageID}`, {useArray : true}, function(err, rows){
           if (err)
             throw err
           let styleObjetcs = rows.slice(0, 2);
-          console.log(styleObjetcs);
           let styleString = "";
           styleObjetcs.forEach(function(item){
             styleString = styleString.concat(item.element,"{ ", item.property, ": ", item.value, ";}");
           })
-          console.log(styleString);
           ejs.renderFile(`${pages}/quote.ejs`, {title: "", text: text,by: by, source: "server", styling: styleString}, function(err, str){
             if (err)
               throw err
