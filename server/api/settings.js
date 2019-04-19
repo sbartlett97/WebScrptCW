@@ -19,30 +19,6 @@ async function updateSettings(req, res){
   con.end();
 }
 
-settings.get('/:value/:page', function(req, res){
-  const con = new db(config.mysql);
-  console.log(req.params.page);
-  if(req.params.value == "page-text"){
-    con.query('SELECT pageId, value FROM content WHERE pageId = :id', {
-      id: parseInt(req.params.page)
-    }, {useArray: true},
-    function(err, rows){
-      if (err)
-        throw err;
-      res.json({rows: rows});
-    });
-  }else if (req.params.value == "page-styling"){
-    con.query('SELECT pageId, element, property, value FROM styles WHERE pageId = :id', {
-      id: parseInt(req.params.page)
-    }, {useArray: true},
-    function(err, rows){
-      if (err)
-        throw err;
-      res.json({rows: rows});
-    });
-  }
-  con.end();
-});
 
 settings.get('/iframe/:type/:id', function(req, res){
   const con = new db(config.mysql);
