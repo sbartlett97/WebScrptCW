@@ -3,15 +3,70 @@
   <head>
     <meta charset="utf-8">
     <title>Page Builder</title>
-    <link rel="stylesheet" href="styles/style2.css">
+    <link rel="stylesheet" href="styles/builder.css">
   </head>
   <body>
     <header>
       <h1>Create New Page Template</h1>
     </header>
     <iframe id="templateViewer"></iframe>
-    <footer>Test</footer>
-    <script src="scripts/ejs.js"></script>
+
+
+    <div id="footer">
+
+      <div id="text">
+        <!-- Text Creator -->
+        <div id="popupText">
+          <form id="form" name="form">
+            <img id="close" src="images/3.png" onclick ="div_hide('text')">
+            <h2>Create Text Page</h2>
+            <input id="tName" name="name" placeholder="Page Name" type="text">
+            <input id="tMsg" name="message" placeholder="Page Message" type="text">
+            <input id="tBackground" name="background" placeholder="Background Color" type="text"></textarea>
+            <input id="tTextColor" name="color" placeholder="Text Color" type="text"></textarea>
+            <a href="javascript:%20check_empty('preview', 'text')" id="submit">Preview</a>
+            <a href="javascript:%20check_empty('send', 'text')" id="send">Save to Server</a>
+          </form>
+        </div>
+      </div>
+
+      <div id="quote">
+        <!-- Quote Creator -->
+        <div id="popupText">
+          <form id="form" name="form">
+            <img id="close" src="images/3.png" onclick ="div_hide('quote')">
+            <h2>Create Text Page</h2>
+            <input id="qName" name="name" placeholder="Page Name" type="text">
+            <input id="qMsg" name="message" placeholder="'Quote' - By" type="text">
+            <input id="qBackground" name="background" placeholder="Background Color" type="text"></textarea>
+            <input id="qTextColor" name="color" placeholder="Text Color" type="text"></textarea>
+            <a href="javascript:%20check_empty('preview', 'quote')" id="submit2">Preview</a>
+            <a href="javascript:%20check_empty('send', 'quote')" id="send2">Save to Server</a>
+
+          </form>
+        </div>
+      </div>
+
+      <div id="img">
+        <!-- Img creator -->
+        <div id="popupText">
+          <form id="form" name="form">
+            <img id="close" src="images/3.png" onclick ="div_hide('img')">
+            <h2>Create Text Page</h2>
+            <input id="iName" name="name" placeholder="Page Name" type="text">
+            <input id="iImg" name="background" placeholder="image" type="text"></textarea>
+            <a href="javascript:%20check_empty('preview', 'img')" id="submit3">Preview</a>
+            <a href="javascript:%20check_empty('send', 'img')" id="send3">Save to Server</a>
+          </form>
+        </div>
+      </div>
+
+
+      <button id="popup" onclick="div_show('text')">Create a text Message</button>
+      <button id="popup" onclick="div_show('quote')">Create a Quote Page</button>
+      <button id="popup" onclick="div_show('img')">Create an Image Page</button>
+
+    </div>
     <script src="scripts/builder.js"></script>
   </body>
 </html>

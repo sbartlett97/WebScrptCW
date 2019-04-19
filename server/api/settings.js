@@ -6,6 +6,7 @@ const fs = require('fs');
 const ejs = require('ejs');
 const pages = __dirname + '/../../public/templates/';
 const settings = express.Router();
+const builder = require('./builder');
 
 settings.get('/refreshTemplates', updateSettings);
 
