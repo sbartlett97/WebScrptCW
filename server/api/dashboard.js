@@ -13,7 +13,9 @@ const defaultPage = 'come in';
 let destPage;
 
 
-dashboard.get('/', handleDefault);
+dashboard.get('/', function(req, res){
+  loadPage(defaultPage, res);
+});
 
 async function updateDisplay(req, res){
   console.log('update recieved');
@@ -26,9 +28,6 @@ async function checkUpdate(req, res){
     res.send(destPage);
 }
 
-async function handleDefault(req, res){
-  loadPage(defaultPage, res);
-}
 
 dashboard.get('/:page', function(req, res){
   loadPage(req.params.page, res);
