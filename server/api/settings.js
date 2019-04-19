@@ -73,32 +73,15 @@ settings.get('/iframe/:type/:id', function(req, res){
         });
       });
       break;
-
-    con.end()
-
-
+    case "picture":
   }
+  con.end()
 });
 
+settings.get('/preview/:type/:name/:msg/:bg/:col', builder.renderTemplate);
 
+settings.get('/addToDB/:type/:name/:msg/:bg/:col', builder.addToDB);
 
 module.exports = {
   settings: settings
 }
-
-
-
-
-
-// let fileNames = {};
-// fs.readdir(pages, (err, files) => {
-//   if(err){
-//     console.log(err);
-//   }else{
-//     files.forEach(function(file, index){
-//       let fileName = file.split('.', 1);
-//       fileNames[Number(index)] = fileName.toString();
-//     });
-//     res.send(JSON.stringify(fileNames));
-//   }
-// });
