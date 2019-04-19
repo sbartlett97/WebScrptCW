@@ -14,13 +14,16 @@ article.main > h1{
   grid-area: header;
 }
 img{
+  padding-top: 10px;
   width: 50%;
 }
 section > button{
   background: none;
+  border: none;
 }
+
 body{
-  font-size: 1em;
+  font-size: 3em;
   margin: 0;
   text-align: center;
   height: auto;
@@ -40,7 +43,21 @@ iframe{
   border: none;
   overflow: hidden;
 }
-section > h2{
-  padding: 0;
-  margin: 0;
+@media screen and (orientation: portrait){
+  article.main{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: 1fr;
+  }
+  iframe{
+    height: 400px;
+  }
+  input{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+  }
+  img{
+    width: 25%;
+  }
 }

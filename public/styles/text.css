@@ -10,8 +10,11 @@ h1{
 }
 @media screen and (max-width: 480px) {
   h1{
-    margin-top: 20%;
-    margin-bottom: auto;
     font-size: 2em;
+  }
+}
+@media screen and (orientation: portrait){
+  h1{
+    margin-top:8%;
   }
 }
