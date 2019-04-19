@@ -40,15 +40,26 @@ async function refreshTemplates(){
   console.log(pagesList);
   pagesList.forEach(async function(item){
     console.log(item);
-    const section = createSection();
+    const section = createSection(article);
     const iframe = document.createElement('iframe');
     iframe.srcdoc = await renderIframe(item);
     const radio = createRadio(item[1]);
     section.appendChild(iframe);
     section.appendChild(radio);
   });
+  addCreateButton();
 }
 
+function addCreateButton(){
+  const article = document.querySelector('article');
+  const section = createSection(article);
+  const button = document.createElement('button');
+  section.appendChild(button);
+  const img = document.createElement('img');
+  img.src = './styles/images/add_button.png';
+  button.appendChild(img);
+  img.addEventListener('click', loadPageBuilder);
+}
 
 async function renderIframe(item){
   let res;
