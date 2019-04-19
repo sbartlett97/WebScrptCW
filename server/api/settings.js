@@ -41,7 +41,7 @@ settings.get('/iframe/:type/:id', function(req, res){
             styleString = styleString.concat(item.element,"{ ", item.property, ": ", item.value, ";}");
           })
           console.log(styleString);
-          ejs.renderFile(`${pages}/text.ejs`, {text: text, source: "server", styling: styleString}, function(err, str){
+          ejs.renderFile(`${pages}/text.ejs`, {title: "",text: text, source: "server", styling: styleString}, function(err, str){
             if (err)
               throw err
             res.set('Content-Type','text/html').send(str);
@@ -69,7 +69,7 @@ settings.get('/iframe/:type/:id', function(req, res){
             styleString = styleString.concat(item.element,"{ ", item.property, ": ", item.value, ";}");
           })
           console.log(styleString);
-          ejs.renderFile(`${pages}/quote.ejs`, {text: text,by: by, source: "server", styling: styleString}, function(err, str){
+          ejs.renderFile(`${pages}/quote.ejs`, {title: "", text: text,by: by, source: "server", styling: styleString}, function(err, str){
             if (err)
               throw err
             res.set('Content-Type','text/html').send(str);
