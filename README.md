@@ -1,4 +1,4 @@
-#Web Script Programming
+# Web Script Programming
 This repository is home to the coursework for my university module "Web Script Programming."
 
 The premise of this coursework is to have a web server that serves a page to an unattended display, which is controlled
