@@ -18,4 +18,5 @@ In addition to the configuration page, users can access a page that allows them 
   * Text
   * Quote
   * Image
- 
+
+When the user selects the template they want to use, the enter the data into the relevant boxes and then can either preview it, or save it into the database. (I highly recommend previewing it first although this is not enforced as of yet).
