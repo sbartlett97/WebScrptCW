@@ -21,12 +21,14 @@ In addition to the configuration page, users can access a page that allows them 
   * Quote
   * Image
 
+This page is accessible via the + button at the end of the iframes.
+
 When the user selects the template they want to use, the enter the data into the relevant boxes and then can either preview it, or save it into the database. (I highly recommend previewing it first although this is not enforced as of yet).
 
 When the user then navigates back to the config page, it is updated with their new addition.
 
 ## Installing for Development
-In order to work on this project, you will need the following prerequesits:
+In order to work on this project, you will need the following prerequisites:
 1. MariaDB v10.3.14^
 2. node.js v10.15.1^
 3. A copy of this repository
@@ -36,5 +38,19 @@ Once you have the above, in order to run tests on the project you will need to p
 2. edit the example config file to contain your database username and password, and rename it to config.js
 3. run the command ``` npm run setup ``` this will create the corresponding database tables in MariaDB as described in bin/setup.js.
 4. run the command ``` npm start ``` to start the server
-5. In your browser of choice, navigate to localhost and localhost/config in two seperate tabs.
+5. In your browser of choice, navigate to localhost and localhost/config in two separate tabs.
 6. ?? Profit!
+
+## Design Rationale
+When designing the system I decided to settle with a single server file that imported different files which each handle a different part of the servers load.
+
+I did this because I felt it would be beneficial to split the functionality from an
+implementation perspective as I could focus on one part of the functionality at a time, without getting lost in the existing elements I had already implemented.
+
+This also makes it easier for maintainability as all of the functionality is split out.
+***
+Another decision I made was to keep the public files for the unattended display
+separate form the files used for the configuration page. I decided to do this again so
+that it was easier to see which files were used for the different parts of the system, as well as to ensure there were no mix-ups when routing the requests to the right place.
+***
+## Implementation Rationale
