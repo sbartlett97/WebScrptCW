@@ -71,9 +71,6 @@ async function renderIframe(item){
     case "picture":
       res = await fetch(`/iframe/pic/${item[0]}`);
       break;
-    case "calendar":
-      res = await fetch(`/iframe/calendar/${item[0]}`);
-      break;
     default:
       break;
   }
