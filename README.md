@@ -14,6 +14,8 @@ At the moment, when the server is running, any requests to the root are responde
 ### Configuration Page
 To access the config page, users must make a call to /config on the domain. At this point, the server responds with the required page which contains is composed of a title, and a collection of iframes, each displaying an individual uniques page based off of the entries in the database (Horrifically resource-inefficient I know - This will be addressed in the future).
 
+To display any of the messages on the screen, simply click the radio button _underneath_ the iframe
+
 In addition to the configuration page, users can access a page that allows them to build their own messages to be displayed from 3 presets (Only 2 of which are currently implemented) -
   * Text
   * Quote
@@ -30,8 +32,9 @@ In order to work on this project, you will need the following prerequesits:
 3. A copy of this repository
 
 Once you have the above, in order to run tests on the project you will need to perform the following actions:
-1. run ```npm install``` in the root directory of the project to install all of the dependencies.
+1. run ``` npm install ``` in the root directory of the project to install all of the dependencies.
 2. edit the example config file to contain your database username and password, and rename it to config.js
-3. run the command ```npm run setup``` this will create the corresponding database tables in MariaDB as described in bin/setup.js.
-4. run the command ```npm start``` to start the server
+3. run the command ``` npm run setup ``` this will create the corresponding database tables in MariaDB as described in bin/setup.js.
+4. run the command ``` npm start ``` to start the server
 5. In your browser of choice, navigate to localhost and localhost/config in two seperate tabs.
+6. ?? Profit!
