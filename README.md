@@ -14,7 +14,7 @@ At the moment, when the server is running, any requests to the root are responde
 ### Configuration Page
 To access the config page, users must make a call to /config on the domain. At this point, the server responds with the required page which contains is composed of a title, and a collection of iframes, each displaying an individual uniques page based off of the entries in the database (Horrifically resource-inefficient I know - This will be addressed in the future).
 
-To display any of the messages on the screen, simply click the radio button _underneath_ the iframe
+To display any of the messages on the screen, simply click the radio button __ _underneath_ __ the iframe
 
 In addition to the configuration page, users can access a page that allows them to build their own messages to be displayed from 3 presets (Only 2 of which are currently implemented) -
   * Text
