@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Cache-control" content="private">
     <title>Page Builder</title>
     <link rel="stylesheet" href="styles/builder.css">
   </head>
@@ -9,7 +10,7 @@
     <header>
       <h1>Create New Page Template</h1>
     </header>
-    <iframe id="templateViewer"></iframe>
+    <div id="templateViewer"></div>
 
 
     <div id="footer">
@@ -22,8 +23,8 @@
             <h2>Create Text Page</h2>
             <input id="tName" name="name" placeholder="Page Name" type="text">
             <input id="tMsg" name="message" placeholder="Page Message" type="text">
-            <input id="tBackground" name="background" placeholder="Background Color" type="text"></textarea>
-            <input id="tTextColor" name="color" placeholder="Text Color" type="text"></textarea>
+            <input id="tBackground" name="background" placeholder="Background Color (default: white)" type="text"></textarea>
+            <input id="tTextColor" name="color" placeholder="Text Color (default: black)" type="text"></textarea>
             <a href="javascript:%20check_empty('preview', 'text')" id="submit">Preview</a>
             <a href="javascript:%20check_empty('send', 'text')" id="send">Save to Server</a>
           </form>
@@ -38,8 +39,8 @@
             <h2>Create Text Page</h2>
             <input id="qName" name="name" placeholder="Page Name" type="text">
             <input id="qMsg" name="message" placeholder="'Quote' - By" type="text">
-            <input id="qBackground" name="background" placeholder="Background Color" type="text"></textarea>
-            <input id="qTextColor" name="color" placeholder="Text Color" type="text"></textarea>
+            <input id="qBackground" name="background" placeholder="Background Color (default: white)" type="text"></textarea>
+            <input id="qTextColor" name="color" placeholder="Text Color (default: black)" type="text"></textarea>
             <a href="javascript:%20check_empty('preview', 'quote')" id="submit2">Preview</a>
             <a href="javascript:%20check_empty('send', 'quote')" id="send2">Save to Server</a>
 

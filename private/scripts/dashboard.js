@@ -6,11 +6,11 @@ const updateHeaders = {
   headers: {
           "Content-Type": "application/json",
       }
-  }
+}
 
 function initialise(){
-  refreshTemplates();
-  document.querySelector('button.refresh').addEventListener('click', refreshTemplates);
+  getjson();
+  document.querySelector('button.refresh').addEventListener('click', getjson);
 }
 
 
@@ -22,65 +22,54 @@ async function sendToServer(event){
   return true;
 }
 
+async function getjson(){
+  const res = await fetch('/getJSON');
+  const json = await res.json();
+  localStorage.pages = JSON.stringify(json);
+  loadPreviews();
+}
 
-function loadPageBuilder(){
+function loadPreviews(){
+  const pageData = JSON.parse(localStorage.pages);
+  const article = document.querySelector('article');
+  article.innerHTML = '';
+  pageData.forEach(function(item){
+    const section = createSection(article);
+    const div = document.createElement('div');
+    let radio = document.createElement('input');
+    div.classList.add('preview');
+    if (item.data.type == "text" || item.data.type == "quote"){
+      div.classList.add(item.data.type);
+      div.style = `background: ${item.data.background}; color: ${item.data.font};`;
+      div.innerHTML = (item.data.type == "text"? `<h1>${item.data.text}</h1>`: `<h1>${item.data.text}</h1><h2>-${item.data.author}</h2>`);
+
+    }else{
+      div.style = `background-image: url("/${item.data.url}");`;
+    }
+    radio = setupRadio(radio, item.title);
+    section.appendChild(div);
+    section.appendChild(radio);
+  });
+  addCreateButton(article);
+}
+
+function loadPageBilder(){
+  console.log('Add button clicked');
   window.location = './builder.html';
 }
 
-
-async function refreshTemplates(){
-
-  const article = document.querySelector('article');
-  article.innerHTML = '';
-  const response = await fetch('/refreshTemplates');
-  let pages = await response.text();
-
-  pages = JSON.parse(pages);
-  const pagesList = pages.rows;
-  pagesList.forEach(async function(item){
-    const section = createSection(article);
-    const iframe = document.createElement('iframe');
-    iframe.srcdoc = await renderIframe(item);
-    const radio = createRadio(item[1]);
-    section.appendChild(iframe);
-    section.appendChild(radio);
-  });
-  addCreateButton();
-}
-
-function addCreateButton(){
-  const article = document.querySelector('article');
+function addCreateButton(article){
   const section = createSection(article);
   const button = document.createElement('button');
   section.appendChild(button);
   const img = document.createElement('img');
   img.src = './styles/images/add_button.png';
   button.appendChild(img);
-  img.addEventListener('click', loadPageBuilder);
+  button.addEventListener('click', loadPageBilder);
 }
 
-async function renderIframe(item){
-  let res;
-  switch (item[2]) {
-    case "text":
-      res = await fetch(`/iframe/text/${item[0]}`);
-      break;
-    case "quote":
-      res = await fetch(`/iframe/quote/${item[0]}`);
-      break;
-    case "picture":
-      res = await fetch(`/iframe/pic/${item[0]}`);
-      break;
-    default:
-      break;
-  }
-  let text = await res.text();
-  return text;
 
-}
-
-function createRadio(value){
-  const radio = document.createElement('input');
+function setupRadio(radio, value){
   radio.type = 'radio';
   radio.id = `${value}`;
   radio.name = 'template';

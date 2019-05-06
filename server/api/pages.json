@@ -1,0 +1,61 @@
+
+{"pages": [
+    {"title": "comeIn",
+      "data": {
+                "type": "text",
+                "text": "Come In! ",
+                "background": "yellow",
+                "font": "black"
+              }
+    },
+    {"title":"doNotDisturb",
+      "data": {
+                "type": "text",
+                "text": "DO NOT DISTURB",
+                "background": "red",
+                "font": "black"
+              }
+    },
+    {"title":"prosper",
+      "data": {
+                "type": "quote",
+                "text": "Live long and prosper. 🖖🏻",
+                "author": "Commander Spock",
+                "background": "#4796F3",
+                "font": "black"
+              }
+    },
+    {"title": "badFeeling",
+      "data":{
+                "type": "quote",
+                "text": "I have a bad feeling about this...",
+                "author": "Han Solo",
+                "background": "grey",
+                "font": "black"
+              }
+    },
+    {"title": "brb",
+      "data":{
+                "type": "text",
+                "text": "Be right back! 🏃🏻‍♂️",
+                "background": "yellow",
+                "font": "black"
+              }
+    },
+    {"title": "goneToLunch",
+      "data":{
+                "type": "text",
+                "text": "Gone to lunch",
+                "background": "white",
+                "font": "black"
+              }
+    },
+    {"title": "technicalDifficulties",
+      "data" :{
+                "type": "image",
+                "title": "technical difficulties",
+                "url": "images/technicalDiff.gif"
+              }
+    }
+  ]
+}
