@@ -3,7 +3,7 @@
   "version": "3.0.0",
   "description": "A Configurable Dashboard fot unatended displays",
   "main": "server/server.js",
-  "author": "Samuel Bartlett",
+  "author": "UP777815",
   "license": "ISC",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,10 +12,8 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
-    "ejs": "^2.6.1",
     "express": "^4.16.2",
     "fs": "0.0.1-security",
-    "mariasql": "^0.2.6",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
