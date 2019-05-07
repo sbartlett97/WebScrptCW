@@ -1,4 +1,8 @@
 'use strict'
+/*
+UP777815 Web Script Coursework 2019
+*/
+
 const updateHeaders = {
   method: "POST",
   mode: "cors",
