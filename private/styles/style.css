@@ -66,6 +66,7 @@ div.preview h1{
   display: inline;
   font-size: 0.75em;
   margin: 0;
+  word-wrap: break-word;
 }
 div.preview h2{
   font-style: italic;

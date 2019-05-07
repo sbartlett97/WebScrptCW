@@ -17,16 +17,17 @@ async function sendJSON(req, res){
 }
 
 async function updateJSON(req, res){
+  console.log(req.body);
   fs.readFile('server/api/pages.json', 'utf-8', (err, data) => {
     if (err)
       throw err;
     data = JSON.parse(data);
     let jsonArr = data.pages;
-    console.log(oldJSON);
-    const extraJSON = JSON.parse(req.body);
+    const extraJSON = req.body;
     jsonArr.push(extraJSON);
     data.pages = jsonArr;
-    fs.appendFile('server/api/pages.json', data, 'utf-8', (err, data) =>{
+    console.log(data.pages);
+    fs.writeFile('server/api/pages.json', JSON.stringify(data), 'utf-8', (err, data) =>{
       if(err)
         throw error
       console.log('JSON Updated successfully!');
