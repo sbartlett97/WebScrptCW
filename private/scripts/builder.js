@@ -27,8 +27,11 @@ function checkInputs(action, type){
         const preview = document.getElementById('templateViewer');
         preview.style = `text-align: center; color:${color}; background-color: ${background}; padding-top: 200px;`;
         preview.innerHTML = `<h1>${text}</h1>`;
+        div_hide(type);
       }else{
+        console.log('sending to server');
         sendToServer('t');
+        div_hide(type);
       }
     }else{
       window.alert('Please enter a valid name and text');
@@ -43,8 +46,10 @@ function checkInputs(action, type){
             const preview = document.getElementById('templateViewer');
             preview.style = `padding-top: 200px; text-align: center; color:${color}; background-color: ${background}`;
             preview.innerHTML = `<h1>${text[0]}</h1><h2 style="background-color: none; font-style: italic;">-${text[1]}</h2>`;
+            div_hide(type);
           }else{
             sendToServer('q');
+            div_hide(type);
         }
       }else{
         window.alert('please enter valid text into the quote field, with the author seperated by a hyphon (-)');
@@ -55,11 +60,11 @@ function checkInputs(action, type){
   }
 }
 async function sendToServer(prefix){
-  const page = {};
   if (prefix == "t" || prefix == "q"){
+    const page = {};
     page.title = `${removeSpaces(document.getElementById(`${prefix}Name`).value)}`;
     page.data = {}
-    page.data.background = (document.getElementById(`${prefix}Background`).value ? document.getElementById(`${prefix}Background`).value : 'black');
+    page.data.background = (document.getElementById(`${prefix}Background`).value ? document.getElementById(`${prefix}Background`).value : 'white');
     page.data.font = (document.getElementById(`${prefix}TextColor`).value ? document.getElementById(`${prefix}TextColor`).value : 'black');
     if (prefix == 't'){
       page.data.text = `${document.getElementById(`${prefix}Msg`).value}`;
@@ -70,15 +75,12 @@ async function sendToServer(prefix){
       page.data.author = `${text[1]}`
       page.data.type = 'quote';
     }
-  }else{
-    page.title = "";
-    page.data = {
-        type: "",
-        url: ""
-    }
+    updateHeaders.body = JSON.stringify(page);
+    let res = await fetch('/updateJSON', updateHeaders);
   }
-  updateHeaders.body = JSON.stringify(page);
-  let res = await fetch('/updateJSON', updateHeaders);
+  localStorage.update = true;
+  window.location = 'index.html';
+
 }
 
 function removeSpaces(text){
