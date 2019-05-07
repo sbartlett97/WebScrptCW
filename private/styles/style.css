@@ -44,7 +44,7 @@ article.main{
 article.main > section{
   background-color: rgba(255, 255, 255, 0.5);
   display: grid;
-  grid-template-rows: 95% 5%;
+  grid-template-rows: 7.5% 87.5% 5%;
   grid-template-columns: 100%;
   padding: 10px;
   margin: 2.5px;
@@ -53,14 +53,27 @@ article.main > section{
 article.main > section:hover{
   background-color: rgba(0, 0, 0, 0.5);
 }
+article.main > section.addButton{
+  grid-template-rows: 100%;
+  padding: 10px;
+  margin: 2.5px;
+  border-radius: 1%;
+}
 div.preview {
   border-radius: 2%;
   padding-bottom: 0;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   margin-bottom: 0;
 }
-
+img.delete{
+  cursor: pointer;
+  margin: 0;
+  margin-left: 95%;
+  display: inline;
+  padding: 0;
+  width: 20px;
+}
 div.preview h1{
   background-color: none;
   display: inline;
@@ -82,6 +95,7 @@ div.quote{
 input{
   margin-left: 50%;
   margin-bottom: 10px;
+  border-radius: 50%;
   display: block;
 }
 
@@ -101,7 +115,13 @@ input{
     width: 25%;
   }
   article.main > section{
-    grid-template-rows: 90% 10%;
+    grid-template-rows: 10% 80% 10%;
+    padding: 10px;
+    margin: 2.5px;
+    border-radius: 1%;
+  }
+  article.main > section.addButton{
+    grid-template-rows: 100%;
     padding: 10px;
     margin: 2.5px;
     border-radius: 1%;
@@ -113,10 +133,18 @@ input{
     font-size: 1em;
   }
   div.preview {
+    margin-top: 5px;
     padding: 10px;
   }
   div.text{
     padding-top: 100px;
+  }
+  img.delete{
+    margin: 0;
+    margin-left: 93%;
+    cursor: pointer;
+    padding: 0;
+    width: 60px;
   }
 
 }
