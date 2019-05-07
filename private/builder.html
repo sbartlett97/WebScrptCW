@@ -23,8 +23,8 @@
             <h2>Create Text Page</h2>
             <input id="tName" name="name" placeholder="Page Name" type="text">
             <input id="tMsg" name="message" placeholder="Page Message" type="text">
-            <input id="tBackground" name="background" placeholder="Background Color (default: white)" type="text"></textarea>
-            <input id="tTextColor" name="color" placeholder="Text Color (default: black)" type="text"></textarea>
+            <input id="tBackground" name="background" placeholder="Background Color (default: white)" type="text">
+            <input id="tTextColor" name="color" placeholder="Text Color (default: black)" type="text">
             <a href="javascript:%20checkInputs('preview', 'text')" id="submit">Preview</a>
             <a href="javascript:%20checkInputs('send', 'text')" id="send">Save to Server</a>
           </form>
@@ -39,8 +39,8 @@
             <h2>Create Quote Page</h2>
             <input id="qName" name="name" placeholder="Page Name" type="text">
             <input id="qMsg" name="message" placeholder="'Quote' - By" type="text">
-            <input id="qBackground" name="background" placeholder="Background Color (default: white)" type="text"></textarea>
-            <input id="qTextColor" name="color" placeholder="Text Color (default: black)" type="text"></textarea>
+            <input id="qBackground" name="background" placeholder="Background Color (default: white)" type="text">
+            <input id="qTextColor" name="color" placeholder="Text Color (default: black)" type="text">
             <a href="javascript:%20checkInputs('preview', 'quote')" id="submit2">Preview</a>
             <a href="javascript:%20checkInputs('send', 'quote')" id="send2">Save to Server</a>
 
@@ -51,13 +51,13 @@
       <div id="img">
         <!-- Img creator -->
         <div id="popupText">
-          <form id="form" name="form">
+          <form id="form" action="/upload" method="post" enctype="multipart/form-data" name="form">
             <img id="close" src="images/3.png" onclick ="div_hide('img')">
             <h2>Create Image Page</h2>
-            <input id="iName" name="name" placeholder="Page Name" type="text">
-            <input id="iImg" name="background" placeholder="image" type="text"></textarea>
-            <a href="javascript:%20check_empty('preview', 'img')" id="submit3">Preview</a>
-            <a href="javascript:%20check_empty('send', 'img')" id="send3">Save to Server</a>
+            <input id="iName" name="title" placeholder="Page Name" type="text">
+            <input id="iImg" name="picfile" accept="image/*" type="file">
+            <a href="javascript:%20checkInputs('preview', 'img')" id="submit3">Preview</a>
+            <input type="submit" onclick="localStorage.update = true;" name="submit" value="Submit">
           </form>
         </div>
       </div>
