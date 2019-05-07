@@ -6,15 +6,16 @@
   "author": "UP777815",
   "license": "ISC",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js",
-    "setup": "node bin/setup.js"
+    "test": "nodemon server/server.js",
+    "start": "node server/server.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.16.2",
     "fs": "0.0.1-security",
-    "serve-favicon": "^2.5.0"
+    "multer": "^1.4.1",
+    "serve-favicon": "^2.5.0",
+    "util": "^0.12.0"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
