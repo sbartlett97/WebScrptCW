@@ -53,15 +53,7 @@ that it was easier to see which files were used for the different parts of the s
 as well as to ensure there were no mix-ups when routing the requests to the right place.
 
 ## Implementation Rationale
-When I initially began implementing the system, it started off by using different full
-html pages with their own css for each page that could be displayed on the unattended
-display.
-
-I did this at the time because I did not know how else to implement what I needed.
-After a while, when I was thinking about the ability to display different types of
-messages it became clear that this was not going to work, especially if I decided to
-implement the ability for users to add their own pages to the system.
-
-From this I stumbled across ejs, which allows the creation of different 'chunks' of a webpage that can be combined together based off of conditional statements embedded in the page itself. This made it more feasible to create the users pages as well.
+The intent of this project is to create a system that allows a lecturer to display messages on an unattended display located on their door, so that
+they can communicate information on their current availability to both their students, and other members of staff.
 
 ***
