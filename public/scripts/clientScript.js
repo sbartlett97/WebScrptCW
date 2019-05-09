@@ -60,9 +60,8 @@ async function checkUpdate(){
 *Function for loading pages to the screen
 */
 function loadPage(page){
-
   //check if our page data is already in local storage
-  if(localStorage.getItem(page)){
+  if(localStorage.getItem(page) != null){
 
     //get the page data as a JSON object
     let loadingPage = JSON.parse(localStorage.getItem(page));
@@ -79,6 +78,7 @@ function loadPage(page){
       //ternary to check if we are displaying text or a quote
       body.innerHTML = (loadingPage.type == "text" ? `<h1>${loadingPage.text}</h1>` : `<h1>${loadingPage.text}</h1><h2>-${loadingPage.author}</h2>`);
     }else{
+      console.log('loading image');
       //only other case is an image
       body.innerHTML = `<img src=${loadingPage.url}></img>`;
     }
@@ -86,8 +86,16 @@ function loadPage(page){
     //set the new page title so we can check fir future updates
     document.querySelector('title').innerHTML = page;
   }else{
-    //if our page is not in local storage, fetch the new JSON from server and call loadPage again
-    getjson();
-    loadPage(page);
+    if(page == 'calendar'){
+      document.body.style = "background: none";
+      console.log('trying calendar');
+      document.querySelector('title').innerHTML = page;
+      document.body.innerHTML = '<div id="calendar" class="calendar"></div>';
+      populateCalendar();
+    }else{
+      //if our page is not in local storage, fetch the new JSON from server and call loadPage again
+      getjson();
+      loadPage(page);
+    }
   }
 }

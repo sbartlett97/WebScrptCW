@@ -21,65 +21,85 @@ function div_show(form) {
 function div_hide(form) {
 	document.getElementById(form).style.display = "none";
 }
-function resetBorders(prefix){
-  document.getElementById(`${prefix}Name`).style = "";
-  document.getElementById(`${prefix}Msg`).style = "";
-  document.getElementById(`${prefix}TextColor`).style = "";
-  document.getElementById(`${prefix}Background`).style = "";
+
+function resetBorders(prefix) {
+	document.getElementById(`${prefix}Name`).style = "";
+	document.getElementById(`${prefix}Msg`).style = "";
+	document.getElementById(`${prefix}TextColor`).style = "";
+	document.getElementById(`${prefix}Background`).style = "";
 }
 
 function checkInputs(action, type) {
-  resetBorders(type.charAt(0))
-  const errors = checkValues(type.charAt(0));
-  if(errors.errorOn == "none"){
+	if (type == 'img') {
+		if (/\w{1}.+/.test(document.getElementById('iName').value) && document.getElementById('iImg').files[0] != null) {
+			let reader = new FileReader();
+			let file = document.getElementById('iImg').files[0]
+			reader.onload = (function (file) {
+				return function (e) {
+					// Render thumbnail.
+					let previewer = document.getElementById('templateViewer');
+					previewer.style = `background-image: url('${e.target.result}');background-repeat: no-repeat; background-size:fill`;
+				};
+			})(file);
+			// Read in the image file as a data URL.
+			reader.readAsDataURL(file);
+			div_hide(type);
+		}else{
+			window.alert('Please check the input fields');
+		}
+	} else {
+		resetBorders(type.charAt(0))
+		const errors = checkValues(type.charAt(0));
+		if (errors.errorOn == "none") {
 
-    const text = document.getElementById(`${type.charAt(0)}Msg`).value;
-    const textColor = (document.getElementById(`${type.charAt(0)}TextColor`).value?document.getElementById(`${type.charAt(0)}TextColor`).value:'black');
-    const backgroundColor = (document.getElementById(`${type.charAt(0)}Background`).value?document.getElementById(`${type.charAt(0)}Background`).value:'white');
+			const text = document.getElementById(`${type.charAt(0)}Msg`).value;
+			const textColor = (document.getElementById(`${type.charAt(0)}TextColor`).value ? document.getElementById(`${type.charAt(0)}TextColor`).value : 'black');
+			const backgroundColor = (document.getElementById(`${type.charAt(0)}Background`).value ? document.getElementById(`${type.charAt(0)}Background`).value : 'white');
 
-    if(action == "preview" && type == "text"){
+			if (action == "preview" && type == "text") {
 
-      const preview = document.getElementById('templateViewer');
-      preview.style = `text-align: center; color:${textColor}; background-color: ${backgroundColor}; padding-top: 200px;`;
-      preview.innerHTML = `<h1>${text}</h1>`;
+				const preview = document.getElementById('templateViewer');
+				preview.style = `text-align: center; color:${textColor}; background-color: ${backgroundColor}; padding-top: 200px;`;
+				preview.innerHTML = `<h1>${text}</h1>`;
 
-    }else if(action == "preview" && type == "quote"){
+			} else if (action == "preview" && type == "quote") {
 
-      //create an array of the text from message box, splitting on '-'
-      let texts = text.split('-');
+				//create an array of the text from message box, splitting on '-'
+				let texts = text.split('-');
 
-      //get the preview div
-      const preview = document.getElementById('templateViewer');
+				//get the preview div
+				const preview = document.getElementById('templateViewer');
 
-      //load the data into the preview div
-      preview.style = `padding-top: 200px; text-align: center; color:${color}; background-color: ${background}`;
-      preview.innerHTML = `<h1>${texts[0]}</h1><h2 style="background-color: none; font-style: italic;">-${texts[1]}</h2>`;
+				//load the data into the preview div
+				preview.style = `padding-top: 200px; text-align: center; color:${color}; background-color: ${background}`;
+				preview.innerHTML = `<h1>${texts[0]}</h1><h2 style="background-color: none; font-style: italic;">-${texts[1]}</h2>`;
 
-    }else{
-      sendToServer(tpye.charAt[0]);
-    }
-    div_hide(type);
-  }else{
-    switch(errors.errorOn){
-      case "message":
-        window.alert('Please enter a valid Message for the page!');
-        document.getElementById(`${type.charAt(0)}Msg`).style = 'border: 2px solid red;transition: border 0.1s ease ';
-        break;
-      case "name":
-        window.alert('Please enter a valid Name for the page!');
-          document.getElementById(`${type.charAt(0)}Name`).style = 'border: 2px solid red;transition: border 0.1s ease ';
-        break;
-      case "textColor":
-        window.alert('Please enter a valid text color for the page!');
-          document.getElementById(`${type.charAt(0)}TextColor`).style = 'border: 2px solid red;transition: border 0.1s ease ';
-        break;
-      case "backgroundColor":
-        window.alert('Please enter a valid background color for the page!');
-          document.getElementById(`${type.charAt(0)}Background`).style = 'border: 2px solid red; transition: border 0.1s ease ';
-        break;
-      default:
-    }
-  }
+			} else {
+				sendToServer(type.charAt(0));
+			}
+			div_hide(type);
+		} else {
+			switch (errors.errorOn) {
+			case "message":
+				window.alert('Please enter a valid Message for the page!');
+				document.getElementById(`${type.charAt(0)}Msg`).style = 'border: 2px solid red;transition: border 0.1s ease ';
+				break;
+			case "name":
+				window.alert('Please enter a valid Name for the page!');
+				document.getElementById(`${type.charAt(0)}Name`).style = 'border: 2px solid red;transition: border 0.1s ease ';
+				break;
+			case "textColor":
+				window.alert('Please enter a valid text color for the page!');
+				document.getElementById(`${type.charAt(0)}TextColor`).style = 'border: 2px solid red;transition: border 0.1s ease ';
+				break;
+			case "backgroundColor":
+				window.alert('Please enter a valid background color for the page!');
+				document.getElementById(`${type.charAt(0)}Background`).style = 'border: 2px solid red; transition: border 0.1s ease ';
+				break;
+			default:
+			}
+		}
+	}
 }
 
 
@@ -97,11 +117,21 @@ function checkValues(templatePrefix) {
 	}
 	const validTextColor = checkCSSColor(document.getElementById(`${templatePrefix}TextColor`).value);
 	const validBackgroundColor = checkCSSColor(document.getElementById(`${templatePrefix}Background`).value);
-  if(!validMessage) return {errorOn: "message"};
-  if(!validName) return {errorOn: "name"};
-  if(!validTextColor) return {errorOn: "textColor"};
-  if(!validBackgroundColor) return {errorOn: "backgroundColor"};
-  return {errorOn: "none"};
+	if (!validMessage) return {
+		errorOn: "message"
+	};
+	if (!validName) return {
+		errorOn: "name"
+	};
+	if (!validTextColor) return {
+		errorOn: "textColor"
+	};
+	if (!validBackgroundColor) return {
+		errorOn: "backgroundColor"
+	};
+	return {
+		errorOn: "none"
+	};
 }
 
 
@@ -116,13 +146,13 @@ function checkCSSColor(colorValue) {
 		return true;
 	} else if (/hsla\(\s*(-?\d+|-?\d*.\d+)\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)%\s*,\s*(-?\d+|-?\d*.\d+)\s*\)/.test(colorValue)) {
 		return true;
-	} else if(cssColors.includes('colorValue')){
-    return true;
-	}else if(colorValue == "" || colorValue == " "){
-    return true;
-  }else{
-    return false;
-  }
+	} else if (cssColors.includes(colorValue.toLowerCase())) {
+		return true;
+	} else if (colorValue == "" || colorValue == " ") {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 async function sendToServer(prefix) {
@@ -143,9 +173,10 @@ async function sendToServer(prefix) {
 		}
 		updateHeaders.body = JSON.stringify(page);
 		let res = await fetch('/updateJSON', updateHeaders);
+		localStorage.update = true;
+		window.location = '/config';
 	}
-	localStorage.update = true;
-	window.location = 'index.html';
+
 
 }
 

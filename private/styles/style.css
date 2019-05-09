@@ -12,13 +12,25 @@ h1{
   margin-bottom: 30px;
 }
 header{
+  font-size: 1em;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
   position: fixed;
   width: 100%;
   background-color: white;
   border-bottom: 2.5px solid black;
   margin-top: 0;
 }
-
+#authorize_button, #signout_button{
+  font-size: 0.5em;
+  width: 60%;
+  height: 40%;
+  margin-left:20%;
+  margin-top: 15%;
+}
+#authorize_button:hover, #signout_button:hover{
+  border: 2px solid blue;
+}
 img{
   padding-top: 10px;
   width: 50%;
@@ -38,13 +50,13 @@ body{
 article.main{
   padding-top: 170px;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 33% 33% 33%;
   grid-auto-rows: 1.25fr;
 }
 article.main > section{
   background-color: rgba(255, 255, 255, 0.5);
   display: grid;
-  grid-template-rows: 7.5% 87.5% 5%;
+  grid-template-rows: 9% 86% 5%;
   grid-template-columns: 100%;
   padding: 10px;
   margin: 2.5px;
@@ -62,7 +74,7 @@ article.main > section.addButton{
 div.preview {
   border-radius: 2%;
   padding-bottom: 0;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   margin-bottom: 0;
 }
@@ -145,6 +157,14 @@ input{
     cursor: pointer;
     padding: 0;
     width: 60px;
+  }
+  #authorize_button, #signout_button{
+    border-radius: none;
+    width: 90%;
+    margin-top: 30%;
+    margin-left: 30%;
+  }
+  #authorize_button:hover, #signout_button:hover{
   }
 
 }

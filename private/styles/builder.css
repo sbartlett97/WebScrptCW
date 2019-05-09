@@ -7,6 +7,8 @@ body{
   grid-template-columns: 1fr;
   grid-template-rows: 15% 70% 15%;
   height: 100vh;
+  overflow: hidden;
+
 }
 header, #footer{
   position: static;
@@ -14,6 +16,11 @@ header, #footer{
   text-align: center;
   margin: 0;
   padding: 0;
+}
+header{
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+
 }
 #footer{
   padding-top: 30px;
@@ -35,7 +42,8 @@ img#close {
   position:absolute;
   right:-14px;
   top:-14px;
-  cursor:pointer
+  cursor:pointer;
+  width: 20px;
 }
 div#popupText {
   position:absolute;
@@ -55,7 +63,15 @@ form {
 p {
   margin-top:30px
 }
-
+input[type=file], input[type=submit] {
+  margin-top:10%;
+  width:80%;
+  font-size: 1em;
+}
+input[type=submit] {
+  background-color: grey;
+  color:white
+}
 input[type=text] {
   width:82%;
   padding:10px;
@@ -64,8 +80,23 @@ input[type=text] {
   padding-left:40px;
   font-size:16px;
 }
+.back{
+  background-color: darkgrey;
+  padding: 2px;
+  width: 60%;
+  border-radius: 5%;
+  margin-left: 20%;
+  margin-top: 20%;
+  height: 20%;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.5s ease;
+}
+.back:hover{
+  background-color: white;
 
-#submit, #send, #submit2, #send2, #submit3, #send3 {
+}
+.action, input[type=submit] {
   margin-top: 30px;
   text-decoration:none;
   width:100%;
@@ -95,4 +126,69 @@ button {
 }
 @media screen and (orientation: portrait){
 
+  body{
+    overflow: hidden;
+    grid-template-rows: 20% 50% 30%;
+  }
+  header{
+    font-size: 3em;
+  }
+  .popup{
+    margin-left: 20%;
+    margin-bottom: 20px;
+    height: 15%;
+    display: block;
+    width: 60%;
+    font-size: 3em;
+  }
+  #text, #quote, #img {
+
+  }
+  img#close {
+    position:absolute;
+    right:60px;
+    top:-14px;
+    cursor:pointer;
+    width: 60px;
+  }
+  div#popupText {
+    position:absolute;
+    left:10%;
+    top:7%;
+    margin-left:0;
+    font-family: sans-serif;
+    }
+  form {
+    font-size: 3em;
+    max-width:80%;
+    height: 100%;
+    min-width:250px;
+    padding:10px 50px;
+    border:2px solid gray;
+    border-radius:10px;
+    background-color:#fff
+  }
+  #templateViewer{
+    font-size: 6em;
+  }
+  input[type=text] {
+    font-size: 1em;
+    width:82%;
+    padding:10px;
+    margin-top:30px;
+    border:1px solid #ccc;
+    padding-left:40px;
+  }
+  .back{
+    width: 100%;
+    margin-top: 80%;
+  }
+
+  .action{
+    font-size: 1em;
+  }
+
+  button {
+
+  }
 }

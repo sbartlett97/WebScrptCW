@@ -6,11 +6,13 @@ UP777815 Web Script Programming Coursework 2019
 //initiate our constants
 const express = require('express');
 const app = express();
-const pages = require('./api/pages');
+const pageRouters = require('./api/pages');
 const favicon = require('serve-favicon');
 const updater = require('./api/config');
-const imgRouter = require('./api/pictures');
+const imgRouter = pageRouters.imgRouter;
+const pages = pageRouters.pages;
 const multer = require('multer');
+
 
 
 
@@ -21,8 +23,8 @@ app.use('/config', express.static('private'));
 app.use(express.json());
 
 //set up the routers
-app.use(imgRouter.imgRouter);
-app.use(pages.pages);
+app.use(imgRouter);
+app.use(pages);
 app.use(updater.updater);
 
 //get the app listening on :8080

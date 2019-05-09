@@ -8,7 +8,8 @@
   </head>
   <body>
     <header>
-      <h1>Create New Page Template</h1>
+      <a href="/config" class="back">Back</a>
+      <h1>Create New Page</h1>
     </header>
     <div id="templateViewer"></div>
 
@@ -19,14 +20,14 @@
         <!-- Text Creator -->
         <div id="popupText">
           <form id="form" name="form">
-            <img id="close" src="images/3.png" onclick ="div_hide('text')">
+            <img id="close" src="styles/images/close.png" onclick ="div_hide('text')">
             <h2>Create Text Page</h2>
             <input id="tName" name="name" placeholder="Page Name" type="text">
             <input id="tMsg" name="message" placeholder="Page Message" type="text">
             <input id="tBackground" name="background" placeholder="Background Color (default: white)" type="text">
             <input id="tTextColor" name="color" placeholder="Text Color (default: black)" type="text">
-            <a href="javascript:%20checkInputs('preview', 'text')" id="submit">Preview</a>
-            <a href="javascript:%20checkInputs('send', 'text')" id="send">Save to Server</a>
+            <a href="javascript:%20checkInputs('preview', 'text')" class="action">Preview</a>
+            <a href="javascript:%20checkInputs('send', 'text')" class="action">Save to Server</a>
           </form>
         </div>
       </div>
@@ -35,14 +36,14 @@
         <!-- Quote Creator -->
         <div id="popupText">
           <form id="form" name="form">
-            <img id="close" src="images/3.png" onclick ="div_hide('quote')">
+            <img id="close" src="styles/images/close.png" onclick ="div_hide('quote')">
             <h2>Create Quote Page</h2>
             <input id="qName" name="name" placeholder="Page Name" type="text">
             <input id="qMsg" name="message" placeholder="'Quote' - By" type="text">
             <input id="qBackground" name="background" placeholder="Background Color (default: white)" type="text">
             <input id="qTextColor" name="color" placeholder="Text Color (default: black)" type="text">
-            <a href="javascript:%20checkInputs('preview', 'quote')" id="submit2">Preview</a>
-            <a href="javascript:%20checkInputs('send', 'quote')" id="send2">Save to Server</a>
+            <a href="javascript:%20checkInputs('preview', 'quote')" class="action">Preview</a>
+            <a href="javascript:%20checkInputs('send', 'quote')" class="action">Save to Server</a>
 
           </form>
         </div>
@@ -52,23 +53,27 @@
         <!-- Img creator -->
         <div id="popupText">
           <form id="form" action="/upload" method="post" enctype="multipart/form-data" name="form">
-            <img id="close" src="images/3.png" onclick ="div_hide('img')">
+            <img id="close" src="styles/images/close.png" onclick ="div_hide('img')">
             <h2>Create Image Page</h2>
             <input id="iName" name="title" placeholder="Page Name" type="text">
             <input id="iImg" name="picfile" accept="image/*" type="file">
-            <a href="javascript:%20checkInputs('preview', 'img')" id="submit3">Preview</a>
-            <input type="submit" onclick="localStorage.update = true;" name="submit" value="Submit">
+            <a href="javascript:%20checkInputs('preview', 'img')" class="action">Preview</a>
+            <input type="submit" onclick="updateConfig()" name="submit" value="Submit">
           </form>
         </div>
       </div>
 
 
-      <button id="popup" onclick="div_show('text')">Create a text Message</button>
-      <button id="popup" onclick="div_show('quote')">Create a Quote Page</button>
-      <button id="popup" onclick="div_show('img')">Create an Image Page</button>
+      <button class="popup" onclick="div_show('text')">Create a text Message</button>
+      <button class="popup" onclick="div_show('quote')">Create a Quote Page</button>
+      <button class="popup" onclick="div_show('img')">Create an Image Page</button>
 
     </div>
-    <script src="scripts/cssCols.js"></script>
+    <script src="scripts/cssCols.js">
+      function updateConfig(){
+        localStorage.update = true;
+      }
+    </script>
     <script src="scripts/builder.js"></script>
   </body>
 </html>

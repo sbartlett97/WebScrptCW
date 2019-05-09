@@ -2,17 +2,27 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="google-signin-client_id" content="44562083234-f9momi4pfmf366r8a8dtorrhf67jnmjs.apps.googleusercontent.com">
     <meta http-equiv="Cache-control" content="private">
     <link rel="stylesheet" href="styles/style.css" type="text/css">
     <title>Screen Config</title>
   </head>
   <body>
     <header>
+      <div>
+        <button id="authorize_button" style="display: none;">Authorize</button>
+        <button id="signout_button" style="display: none;">Sign Out</button></div>
       <h1>Screen Config</h1>
     </header>
       <article class="main">
 
       </article>
     <script type="text/javascript" src="scripts/dashboard.js"></script>
+    <script src="scripts/gCalendar.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script defer src="https://apis.google.com/js/api.js"
+      onload="this.onload=function(){};handleClientLoad()"
+      onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>
   </body>
 </html>

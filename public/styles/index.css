@@ -21,6 +21,20 @@ img{
   width: 100vw;
   height: auto;
 }
+.calendar h1{
+  border-radius: 4%;
+  border: 3px solid black;
+  background: lightblue;
+  margin:0;
+}
+.calendar{
+  margin-top: 20%;
+  border-radius: 3%;
+  border: 3px solid black;
+  width:80%;
+  margin-left:10%;
+  text-align: left;
+}
 @media screen and (max-width: 480px) {
   h1{
     font-size: 2em;
