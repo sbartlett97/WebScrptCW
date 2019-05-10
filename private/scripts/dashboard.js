@@ -237,7 +237,11 @@ function createSection(article) {
  * @param  {DOM Event} event the event that triggered the function call
  */
 async function deletePage(event) {
+
+	//check if they are sure they want to delete the page
 	if(window.confirm('Are you sure you want to delte this page?')){
+
+		//delete the page from local storage
 		let pages = JSON.parse(localStorage.pages);
 		let index = pages.findIndex((item)=>{
 	    if(item.title == event.target.id){
@@ -246,6 +250,8 @@ async function deletePage(event) {
 	  });
 	  let deleted = pages.splice(index, 1);
 		localStorage.pages = JSON.stringify(pages);
+
+
 		//setup the request headers
 		const headers = {
 			method: "DELETE",
@@ -255,6 +261,8 @@ async function deletePage(event) {
 				"Content-Type": "application/json",
 			}
 		}
+
+
 		//set the target page that we want to delete
 		const data = {
 			target: `${event.target.id}`
@@ -282,25 +290,46 @@ async function deletePage(event) {
 	}
 }
 
+
+/**
+ * addCalendarOption - Adds the option to display the calendar option
+ * depending on whether or not the user is signed in to google
+ *
+ */
 function addCalendarOption(){
+
+	//get the parent article
 	const article = document.querySelector('article');
+
+	//create all of the relevant elemetns we will need
 	const section = document.createElement('section');
 	const div = document.createElement('div');
 	const spacer = document.createElement('div');
 	let radio = document.createElement('input');
 
+	//setup the section
 	section.classList.add('iframeContainer');
 	section.id = 'calendar';
 
+	//setup the otehr elements
 	div.classList.add('preview');
 	div.innerHTML = "<h1>Calendar</h1>";
+
+	//apend the elements to their parent elements
 	radio = setupRadio(radio, 'calendar');
 	section.appendChild(spacer);
 	section.appendChild(div);
 	section.appendChild(radio);
 
+	//insert the calendar option before the add option
 	article.insertBefore(section, document.querySelector('.addButton'));
 }
+
+
+/**
+ * removeCalendarOption - hides the calendar option if the user is no longer signed in
+ *
+ */ 
 function removeCalendarOption(){
 	if(document.getElementById('calendar')!= null){
 		document.getElementById('calendar').remove();

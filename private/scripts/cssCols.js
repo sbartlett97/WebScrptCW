@@ -1,3 +1,5 @@
+
+//array of all the possible css color strings for validation
 const  cssColors = [
     "ightsalmon",
     "salmon",

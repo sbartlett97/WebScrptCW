@@ -29,11 +29,14 @@ module.exports.uploadPicture = async (reqFile, title)=>{
    return 'images/' + newFilename;
 };
 
+
+// export a function for deleting a picture from the filesystem
 module.exports.deletePicture = async (url) => {
-  console.log(`public/${url}`);
   try {
+    //attempt ot remove the image
     await unlinkAsync(`public/${url}`);
   } catch (e) {
+    //if it fails log the error
     throw ['failed fs delete of ' + url, e];
   }
 };

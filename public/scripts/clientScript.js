@@ -9,7 +9,11 @@ localStorage.firstTimeSetup = true;
 getjson();
 setInterval(checkUpdate, 15000);
 
-//function for getting JSON data from server
+
+/**
+ * getjson - gets the page JSON from the server
+ *
+ */
 async function getjson(){
   //fetch JSON
   const res = await fetch('/getJSON');
@@ -28,9 +32,11 @@ async function getjson(){
 }
 
 
-/*
-* Function for checking whther page has been updated
-*/
+
+/**
+ * checkUpdate - checks if we need to dispaly a different page
+ *
+ */
 async function checkUpdate(){
 
   //pull the title content to be used for checking page we should display
@@ -56,9 +62,12 @@ async function checkUpdate(){
 }
 
 
-/*
-*Function for loading pages to the screen
-*/
+
+/**
+ * loadPage - loads a page from the data stored in localStorage
+ *
+ * @param  {String} page the page to be loaded
+ */ 
 function loadPage(page){
   //check if our page data is already in local storage
   if(localStorage.getItem(page) != null){
