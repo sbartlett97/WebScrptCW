@@ -89,17 +89,13 @@ function getUpcomingEvents() {
     'orderBy': 'startTime'
   }).then(function(response) {
     let events = response.result.items;
-    console.log('Upcoming events:');
     const calEvents = {
       events: []
     }
     if (events.length > 0) {
       events.forEach((calEvent)=>{
-        console.log(calEvent);
         let start = new Date(calEvent.start.dateTime);
         let end = new Date(calEvent.end.dateTime);
-        console.log(start);
-        console.log(end);
         let nextEvent = {
           date: `${start.getDate()}/${start.getMonth()}`,
           title: calEvent.summary,
@@ -112,7 +108,6 @@ function getUpcomingEvents() {
       localStorage.calendarEvents = JSON.stringify(calEvents);
       sendCalenderEvents();
     } else {
-      console.log('No upcoming events found.');
     }
   });
 }

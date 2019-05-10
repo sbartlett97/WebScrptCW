@@ -30,30 +30,29 @@ function displayNextEvent(){
     events.shift();
     localStorage.calendarData = JSON.stringify(events);
   }
-  checkNextEvent();
 }
 
-function checkNextEvent(){
-  const events = JSON.parse(localStorage.calendarData);
-  let today = new Date(Date.now());
-  console.log(events);
-  console.log(document.title);
-  if(document.title =='calendar'){
-    let currentEventTime = document.getElementById('time').innerHTML;
-    let startEndTime = currentEventTime.split('-');
-    let endHours = startEndTime[1].split(':')[0];
-    let nextStartHours = events[0].start.split(':')[0];
-    if(Number(endHours) == Number(nextStartHours) -1 || Number(endHours) == Number(nextStartHours)){
-      if(events[0].date == `${today.getDate()}/${today.getMonth()}`){
-        displayNextEvent();
-      }else{
-        loadPage('brb');
-      }
-    }else{
-      loadPage('brb');
-    }
-  }
-}
+// function checkNextEvent(){
+//   const events = JSON.parse(localStorage.calendarData);
+//   let today = new Date(Date.now());
+//   console.log(events);
+//   console.log(document.title);
+//   if(document.title =='calendar'){
+//     let currentEventTime = document.getElementById('time').innerHTML;
+//     let startEndTime = currentEventTime.split('-');
+//     let endHours = startEndTime[1].split(':')[0];
+//     let nextStartHours = events[0].start.split(':')[0];
+//     if(Number(endHours) == Number(nextStartHours) -1 || Number(endHours) == Number(nextStartHours)){
+//       if(events[0].date == `${today.getDate()}/${today.getMonth()}`){
+//         displayNextEvent();
+//       }else{
+//         loadPage('brb');
+//       }
+//     }else{
+//       loadPage('brb');
+//     }
+//   }
+// }
 
 
 function populateCalendar(){

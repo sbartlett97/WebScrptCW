@@ -46,7 +46,11 @@ async function deletePage(req, res){
       return item;
     }
   });
-  pagesJSON.pages.splice(index, 1);
+  let deleted = pagesJSON.pages.splice(index, 1);
+  console.log(deleted);
+  if(deleted.data.type == 'image'){
+      handler.deletePicture(deleted[0].data.url)
+  }
   updatePagesJSON();
   res.send();
 }

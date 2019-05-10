@@ -237,38 +237,48 @@ function createSection(article) {
  * @param  {DOM Event} event the event that triggered the function call
  */
 async function deletePage(event) {
-
-	//setup the request headers
-	const headers = {
-		method: "DELETE",
-		mode: "cors",
-		cache: "no-cache",
-		headers: {
-			"Content-Type": "application/json",
+	if(window.confirm('Are you sure you want to delte this page?')){
+		let pages = JSON.parse(localStorage.pages);
+		let index = pages.findIndex((item)=>{
+	    if(item.title == event.target.id){
+	      return item;
+	    }
+	  });
+	  let deleted = pages.splice(index, 1);
+		localStorage.pages = JSON.stringify(pages);
+		//setup the request headers
+		const headers = {
+			method: "DELETE",
+			mode: "cors",
+			cache: "no-cache",
+			headers: {
+				"Content-Type": "application/json",
+			}
 		}
-	}
-	//set the target page that we want to delete
-	const data = {
-		target: `${event.target.id}`
-	};
-	headers.body = JSON.stringify(data);
+		//set the target page that we want to delete
+		const data = {
+			target: `${event.target.id}`
+		};
+		headers.body = JSON.stringify(data);
 
-	try {
-		//make our request to the server
-		const response = await fetch('/deletePage', headers);
+		try {
+			//make our request to the server
+			const response = await fetch('/deletePage', headers);
 
-		//check for an error
-		if (!response.ok)
-			throw new Error(response.statusText);
+			//check for an error
+			if (!response.ok)
+				throw new Error(response.statusText);
 
-		//if we don't get an error, alert the user and reload the previews
-		window.alert('Page Deleted');
-		getjson();
-	} catch (err) {
+			//if we don't get an error, alert the user and reload the previews
+			window.alert('Page Deleted');
+			loadPreviews()
+			handleClientLoad();
+		} catch (err) {
 
-		//if we couldn't fetch log the error and let the user know
-		console.log(err);
-		window.alert('An error occurd, please try again.');
+			//if we couldn't fetch log the error and let the user know
+			console.log(err);
+			window.alert('An error occurd, please try again.');
+		}
 	}
 }
 

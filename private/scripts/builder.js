@@ -193,3 +193,6 @@ function removeSpaces(text) {
 	});
 	return text;
 }
+document.onload = function(){
+	localStorage.update = true;
+}
