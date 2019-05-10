@@ -33,7 +33,7 @@ function displayNextEvent(){
 }
 
 // function checkNextEvent(){
-//   const events = JSON.parse(localStorage.calendarData);
+//   const events = JSON.parse(localStorage.calendarD// ata);
 //   let today = new Date(Date.now());
 //   console.log(events);
 //   console.log(document.title);
